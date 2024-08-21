@@ -34,6 +34,15 @@ This command does exactly what I needed:
 - **`requests.get`** sends a GET request to `https://api.ipify.org`, a public API that returns the client’s public IP address.
 - **`.json()`** converts the response into a Python dictionary, from which I could easily print the IP address.
 
+The final steps would be:
+
+```bash
+# shell into running pod in the Kubernetes cluster
+kubectl exec -it my-example-pod-123456 -- bash
+# run python one-liner inside of the pod to gather the IP address
+python3 -c "import requests; print(requests.get('https://api.ipify.org?format=json').json())"
+```
+
 ## Why Python?
 
 Python is often available in containerized environments like Kubernetes due to its versatility. Even when you don't have common utilities like `curl`, Python's `requests` library can save the day by allowing you to interact with web services directly.
