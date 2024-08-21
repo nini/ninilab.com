@@ -107,6 +107,10 @@ article.post {
   display: flex;
   flex-flow: row wrap;
 
+  div.highlighter-rouge {
+    max-width: 790px;
+  }
+
   @media screen and (min-width: $on-laptop) {
     header.post-header {
       --animate-delay: 0.25s;
